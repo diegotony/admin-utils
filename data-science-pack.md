@@ -1,7 +1,9 @@
 # Data-Science
-##Links relacionados
+## Links relacionados
+
 [Blog](https://blog.patricktriest.com/police-data-python/)
-[Pdf!](https://figshare.com/articles/BJM_2017-10-25_-_SIG_Jupyter_Notebooks_in_Chemistry_pdf/5554213/1)
+
+[Pdf](https://figshare.com/articles/BJM_2017-10-25_-_SIG_Jupyter_Notebooks_in_Chemistry_pdf/5554213/1)
 ```
 pip install numpy pandas matplotlib ipython jupyter
 ```
