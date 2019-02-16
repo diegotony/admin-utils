@@ -10,7 +10,7 @@ echo '\033[0m'
 sleep 1
 
 packages_default="git sed make wget curl"
-tools="vim tmux htop nmap glances zsh python3 virtualenv screenfetch";
+tools="vim tmux htop nmap glances zsh python3 python3-pip virtualenv screenfetch";
 node="nodejs npm"
 python_packages="virtualenv jupyter"
 plugins_zsh="git docker npm python sudo systemd web-search"
