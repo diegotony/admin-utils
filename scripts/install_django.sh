@@ -46,5 +46,5 @@ mkdir ~/virtualenv
 cd virtualenv
 virtualenv .p python3 django
 source django/bin/activate
-pip install -r ~repositorios/linux_utils/scripts/requirements.txt
+pip install -r ~/repositorios/linux_utils/scripts/requirements.txt
 deactivate
