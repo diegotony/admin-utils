@@ -72,10 +72,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # source ~/.zshrc | zsh
 
 
-cp ~/repositorios/linux_utils/scripts/zshrc ~/.zshrc
+mv ~/repositorios/linux_utils/scripts/zshrc ~/.zshrc
 
 
-cp ~/repositorios/linux_utils/scripts/bashrc ~/.bashrc
+mv ~/repositorios/linux_utils/scripts/bashrc ~/.bashrc
 
 echo "/_  _/  /7  _   _     /7   __"
 echo " / /   / \,'o| / \/7 //_7 (c'"
