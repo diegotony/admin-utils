@@ -10,10 +10,9 @@ echo '\033[0m'
 sleep 1
 
 packages_default="git sed make wget curl"
-tools="vim tmux htop nmap glances zsh python3-pip virtualenv";
+tools="vim tmux htop nmap glances zsh python3 virtualenv screenfetch";
 node="nodejs npm"
-node_packages="@angular/cli @vue/cli express"
-python_packages="pipenv"
+python_packages="virtualenv jupyter"
 plugins_zsh="git docker npm python sudo systemd web-search"
 
 #Updating Packages
@@ -48,10 +47,22 @@ sleep 1
 echo "Installing NodeJs"
 apt install $node
 echo "Installing node packages"
-npm install -g $node_packages
-echo "Installing Python Tools"
-pip install $python_packages
+npm install -g @angular/cli @vue/cli express
+npm install -g @vue/cli 
+npm install -g express
 
+echo "Installing Python Tools"
+sleep 1
+echo "Installing pipenv"
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install pipenv
+sleep 1
+echo "Installing python packages "
+pip install $python_packages
 echo '\033[0m'
 
+
+echo "/_  _/  /7  _   _     /7   __"
+echo " / /   / \,'o| / \/7 //_7 (c'"
+echo "/_/   /n_/|_,7/_n_/ //\\ /__)"
 
