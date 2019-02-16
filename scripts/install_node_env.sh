@@ -9,26 +9,28 @@ echo "                          '                                               
 echo '\033[0m'
 sleep 1
 
-echo "Installing Python Tools"
+#Updating Packages
+echo '\033[0;33mUpdating Packages '
 sleep 1
-echo "Installing pipenv"
-packages="git python3 python3-pip virtualenv python3-dev libpq-dev"
+apt update 
+echo '\033[0m'
 
-sudo apt install $packages
-sudo -H pip3 install --upgrade pip
-sudo -H pip3 install pipenv
+# Upgrade Packages
+echo '\033[0;33mUpgrade Packages'
+sleep 1
+#apt upgrade
+echo '\033[0m'
 
-# Create Repositorios folder
-mkdir ~/repositorios
-cd ~/repositorios/
-git clone https://github.com/diegotony/linux_utils
+node="nodejs npm"
 
-# Create Virtualenv Folder
-mkdir ~/virtualenv
-cd virtualenv
+# Installations Packages Node
 
-#vistualenv d_s
-virtualenv .p python3 data_science
-source django/bin/activate
-pip install -r requirements_data_science.txt
-deactivate
+echo "\033[1;35mInstalling Development Tools"
+sleep 1
+echo "Installing NodeJs"
+apt install $node
+
+echo "Installing node packages (Angular - Vue - Express)"
+npm install -g @angular/cli 
+npm install -g @vue/cli 
+npm install -g express
