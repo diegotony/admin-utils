@@ -25,7 +25,7 @@ echo '\033[0m'
 # Upgrade Packages
 echo '\033[0;33mUpgrade Packages'
 sleep 1
-apt upgrade
+#apt upgrade
 echo '\033[0m'
 
 # Installations Packages
