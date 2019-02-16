@@ -21,6 +21,13 @@ sleep 1
 #apt upgrade
 echo '\033[0m'
 
+
+# Create Repositorios folder
+mkdir ~/repositorios
+cd ~/repositorios/
+git clone https://github.com/diegotony/linux_utils
+
+
 # Installations Packages
 
 
@@ -39,5 +46,5 @@ mkdir ~/virtualenv
 cd virtualenv
 virtualenv .p python3 django
 source django/bin/activate
-pip install -r requirements.txt
+pip install -r ~repositorios/linux_utils/scripts/requirements.txt
 deactivate
