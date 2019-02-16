@@ -61,7 +61,12 @@ echo "Installing python packages "
 pip install $python_packages
 echo '\033[0m'
 
+
+# Create Repositorios folder
 mkdir ~/repositorios
+cd ~/repositorios/
+git clone https://github.com/diegotony/linux_utils
+cd
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 source ~/.zshrc | zsh
