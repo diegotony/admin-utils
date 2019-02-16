@@ -73,8 +73,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 cd  ~/repositorios/linux_utils/scripts/
 
-cp zshrc.txt ~/.zshrc
-cp bashrc.txt ~/.bashrc
+mv zshrc.txt ~/.zshrc
+mv bashrc.txt ~/.bashrc
 
 echo "/_  _/  /7  _   _     /7   __"
 echo " / /   / \,'o| / \/7 //_7 (c'"
