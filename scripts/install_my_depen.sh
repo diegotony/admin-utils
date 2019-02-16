@@ -72,7 +72,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # source ~/.zshrc | zsh
 
 cd  ~/repositorios/linux_utils/scripts/
-
+pwd
 mv zshrc.txt ~/.zshrc
 mv bashrc.txt ~/.bashrc
 
