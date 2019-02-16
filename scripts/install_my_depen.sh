@@ -63,6 +63,21 @@ echo '\033[0m'
 
 mkdir ~/repositorios
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+source ~/.zshrc | zsh
+add_plugins_oh_my_zsh
+
+add_plugins_oh_my_zsh(){
+    echo "Config plugins of oh my zsh"
+    for name in ${plugins_zsh[*]}
+    do
+        name_plugins+=" \n\t"$name
+    done
+    echo $name_plugins
+    ruta=~/"/.zshrcs"
+    sed -i "s/  git/  $name_plugins/g" "$ruta"
+}
+
 echo "/_  _/  /7  _   _     /7   __"
 echo " / /   / \,'o| / \/7 //_7 (c'"
 echo "/_/   /n_/|_,7/_n_/ //\\ /__)"
