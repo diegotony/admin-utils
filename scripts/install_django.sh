@@ -47,5 +47,5 @@ mkdir ~/virtualenv
 cd virtualenv
 virtualenv -p python3 django
 source ~/virtualenv/django/bin/activate
-pip install -r ~/repositorios/linux_utils/scripts/requirements.txt
+pip install ipython django
 deactivate
