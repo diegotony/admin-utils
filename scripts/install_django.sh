@@ -26,7 +26,7 @@ echo '\033[0m'
 mkdir ~/repositorios
 cd ~/repositorios/
 git clone https://github.com/diegotony/linux_utils
-
+cd 
 
 # Installations Packages
 
@@ -42,9 +42,13 @@ sudo -H pip3 install pipenv
 
 
 # virtualenv django
+echo "virtualenv django"
 mkdir ~/virtualenv
+
 cd virtualenv
-virtualenv .p python3 django
+
+virtualenv -p python3 django
+ls
 source django/bin/activate
 pip install -r ~/repositorios/linux_utils/scripts/requirements.txt
 deactivate
