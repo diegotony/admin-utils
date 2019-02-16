@@ -42,10 +42,18 @@ sudo -H pip3 install pipenv
 
 
 # virtualenv django
+cd
 echo "virtualenv django"
 mkdir ~/virtualenv
 cd virtualenv
+
+sleep 1
+
 virtualenv -p python3 django
+sleep 1
 source ~/virtualenv/django/bin/activate
+
+sleep 1
+
 pip install ipython django
 deactivate
