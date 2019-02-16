@@ -35,6 +35,8 @@ sudo -H pip3 install pipenv
 
 
 # virtualenv django
+mkdir ~/virtualenv
+cd virtualenv
 virtualenv .p python3 django
 source django/bin/activate
 pip install -r requirements.txt
