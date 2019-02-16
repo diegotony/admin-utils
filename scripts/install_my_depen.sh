@@ -71,11 +71,10 @@ cd
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # source ~/.zshrc | zsh
 
+cd  ~/repositorios/linux_utils/scripts/
 
-mv ~/repositorios/linux_utils/scripts/zshrc ~/.zshrc
-
-
-mv ~/repositorios/linux_utils/scripts/bashrc ~/.bashrc
+cp zshrc ~/.zshrc
+cp bashrc ~/.bashrc
 
 echo "/_  _/  /7  _   _     /7   __"
 echo " / /   / \,'o| / \/7 //_7 (c'"
