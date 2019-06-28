@@ -11,7 +11,7 @@ sleep 1
 
 packages_default="git sed make wget curl"
 tools="vim tmux htop nmap glances zsh python3 python3-pip virtualenv screenfetch";
-node="nodejs npm"
+node="nodejs"
 python_packages="virtualenv jupyter"
 plugins_zsh="git docker npm python sudo systemd web-search"
 
@@ -41,15 +41,18 @@ sleep 1
 apt install $tools
 echo '\033[0m'
 
-
+# Install node
 echo "\033[1;35mInstalling Development Tools"
 sleep 1
 echo "Installing NodeJs"
-apt install $node
+curl -sL https://deb.nodesource.com/setup_11.x | bash -
+apt install -y $node
+apt install build-essential libssl-dev
 echo "Installing node packages"
 #npm install -g @angular/cli 
 #npm install -g @vue/cli 
 #npm install -g express
+
 
 echo "Installing Python Tools"
 sleep 1
