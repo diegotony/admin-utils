@@ -1,0 +1,35 @@
+- name: Playbook
+  hosts: localhost
+  connection: local
+  become: yes
+  become_user: root
+  tasks:
+    - name : Update and Install packages Debian
+      block:
+        - name: Update Packages
+          apt: 
+            name: "*"
+            state: latest
+        - name: Install Packages
+          apt:
+            pkg: ["cmatrix","vim","htop"]
+
+      when:
+        - ansible_facts['distribution'] == "Debian"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution'] == "Deephin"
+      
+    - name: Update and Install Arch
+      block:
+        - name: Update Packages Arch
+          pacman:
+            update_cache: yes
+          
+        - name: Install Packages Arch
+          pacman:
+            name: ["cmatrix","vim","htop"]
+            state: latest 
+      when:
+        - ansible_facts['distribution'] == "Archlinux"
+
+
