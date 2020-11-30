@@ -19,19 +19,36 @@
         - ansible_facts['distribution'] == "Ubuntu"
         - ansible_facts['distribution'] == "Deephin"
       
-    - name: Update and Install Arch
+    - name: Archlinux Installation
       block:
-        - name: Update Packages Arch
+        - name: Updating Packages
           pacman:
             update_cache: yes
           
-        - name: Install Packages Arch
+        - name: Installing Packages
           pacman:
             name: "{{packages}}"
-            state: latest 
-              #- debug:
-              #  msg: "Hello {{packages}}"
- 
+            state: latest
+        - name: Docker =>  Installing
+          pacman:
+            name: "docker"
+            state: latest
+
+        - name: Docker  Start
+          shell: |
+            systemctl start docker.service
+
+        - name: Docker  Enable
+          shell: |
+            systemctl enable docker.service
+       
+        - name: Docker  Create Docker Group
+          shell: sudo getent group docker || sudo groupadd docker
+
+        - name: Docker Add User to Group
+          shell: sudo gpasswd -a {{lookup('env',"USER")}} docker
+
+
       when:
         - ansible_facts['distribution'] == "Archlinux"
 
