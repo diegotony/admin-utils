@@ -10,9 +10,13 @@
         name: "{{packages}}"
         state: present
           
-    - name: Install OhMyZsh
-      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    - name: Install Docker Arch
+    - name: OhMyZsh
+      block:
+        - name: Install OhMyZshi
+          shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    
+
+    - name: Docker
       block:
         - name: Install Docker 
           package:
