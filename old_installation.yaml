@@ -1,0 +1,56 @@
+- name: Playbook
+  hosts: localhost
+  connection: local
+  become: yes
+  become_user: root
+  vars_files: ./vars.yaml 
+  tasks:
+    - name: Update and Install packages Debian
+      block:
+        - name: Update Packages
+          apt: 
+            name: "*"
+            state: latest
+        - name: Install Packages
+          apt:
+            pkg: "{{packages}}"
+
+      when:
+        - ansible_facts['distribution'] == "Debian"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution'] == "Deephin"
+      
+    - name: Archlinux Installation
+      block:
+        - name: Updating Packages
+          pacman:
+            update_cache: yes
+          
+        - name: Installing Packages
+          pacman:
+            name: "{{packages}}"
+            state: latest
+        - name: Docker =>  Installing
+          pacman:
+            name: "docker"
+            state: latest
+
+        - name: Docker  Start
+          shell: |
+            systemctl start docker.service
+
+        - name: Docker  Enable
+          shell: |
+            systemctl enable docker.service
+       
+        - name: Docker  Create Docker Group
+          shell: sudo getent group docker || sudo groupadd docker
+
+        - name: Docker Add User to Group
+          shell: sudo gpasswd -a {{lookup('env',"USER")}} docker
+
+
+      when:
+        - ansible_facts['distribution'] == "Archlinux"
+
+

@@ -5,50 +5,42 @@
   become_user: root
   vars_files: ./vars.yaml 
   tasks:
-    - name: Update and Install packages Debian
-      block:
-        - name: Update Packages
-          apt: 
-            name: "*"
-            state: latest
-        - name: Install Packages
-          apt:
-            pkg: ["cmatrix","vim","htop"]
-      when:
-        - ansible_facts['distribution'] == "Debian"
-        - ansible_facts['distribution'] == "Ubuntu"
-        - ansible_facts['distribution'] == "Deephin"
-      
-    - name: Archlinux Installation
-      block:
-        - name: Updating Packages
-          pacman:
-            update_cache: yes
+    - name: install packages
+      package:
+        name: "{{packages}}"
+        state: present
           
-        - name: Installing Packages
-          pacman:
-            name: "{{packages}}"
-            state: latest
-        - name: Docker =>  Installing
-          pacman:
+    - name: Install OhMyZsh
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    - name: Install Docker Arch
+      block:
+        - name: Install Docker 
+          package:
             name: "docker"
-            state: latest
+            state: present
 
-        - name: Docker  Start
-          shell: |
-            systemctl start docker.service
+        - name: Docker Start
+          service:
+            name: docker.service
+            state: started
+        
+        - name: Docker create Docker Group
+          group:
+            name: docker
+            state: present
+            gid: 1396
 
-        - name: Docker  Enable
-          shell: |
-            systemctl enable docker.service
-       
-        - name: Docker  Create Docker Group
-          shell: sudo getent group docker || sudo groupadd docker
+        - name: Get User
+          command: whoami
+          changed_when: false
+          become: false
+          register: whoami
 
-        - name: Docker Add User to Group
-          shell: sudo gpasswd -a {{lookup('env',"USER")}} docker
-
-
+        - name: Add User to Docker Group
+          user: 
+            name: "{{whoami.stdout}}" 
+            comment: Admin
+            group: docker
       when:
         - ansible_facts['distribution'] == "Archlinux"
 
